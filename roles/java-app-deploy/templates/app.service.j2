@@ -1,0 +1,14 @@
+[Unit]
+Description=Java Application
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/java -jar /opt/app/app.jar
+User=root
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=java-app
+
+[Install]
+WantedBy=multi-user.target

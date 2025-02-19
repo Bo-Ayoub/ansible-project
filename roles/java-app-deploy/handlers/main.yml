@@ -1,0 +1,5 @@
+---
+- name: Restart app service
+  ansible.builtin.systemd:
+    name: app
+    state: restarted
