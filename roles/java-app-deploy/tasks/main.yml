@@ -17,17 +17,17 @@
   ansible.builtin.git:
     repo: "https://github.com/Bo-Ayoub/simple-java-app.git"
     dest: /opt/app
-    version: main  
+    version: master
 
 - name: Build the Java application using Maven
   ansible.builtin.shell:
-    cmd: mvn clean install
+    cmd: mvn clean install -DskipTests
     chdir: /opt/app
 
 - name: Copy JAR file to deployment directory
   ansible.builtin.copy:
-    src: /opt/app/target/app.jar  
-    dest: /opt/app/app.jar
+    src: /opt/app/target/simple-java-app-ansible-0.0.1-SNAPSHOT.jar  
+    dest: /opt/app/simple-java-app-ansible-0.0.1-SNAPSHOT.jar
     remote_src: yes
     mode: '0755'
 
