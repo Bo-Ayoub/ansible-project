@@ -1,6 +1,6 @@
 ---
 - name: Deploy Java Application
-  hosts: vm1
+  hosts: servers
   become: true
   roles:
     - java-app-deploy

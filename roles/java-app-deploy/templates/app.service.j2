@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 ExecStart=/usr/bin/java -jar /opt/app/simple-java-app-ansible-0.0.1-SNAPSHOT.jar
-User=ayoub2
+User={{ ansible_user }}
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
