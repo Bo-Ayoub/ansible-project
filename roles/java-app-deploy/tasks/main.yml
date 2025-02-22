@@ -1,5 +1,5 @@
 ---
-- name: Install Java 17 and dependencies
+- name: Installer Java 17 et dependences
   ansible.builtin.apt:
     name:
       - openjdk-17-jdk
@@ -13,13 +13,13 @@
     state: directory
     mode: '0755'
 
-- name: Download Java application from GitHub
+- name: telecharger Java application du GitHub
   ansible.builtin.git:
     repo: "https://github.com/Bo-Ayoub/simple-java-app.git"
     dest: /opt/app
     version: master
 
-- name: Build the Java application using Maven
+- name: Build the Java application Maven et skip tests 
   ansible.builtin.shell:
     cmd: mvn clean install -DskipTests
     chdir: /opt/app
